@@ -62,6 +62,6 @@ Material:
     - _Radius: 0.87
     - _Speed: 0.08
     m_Colors:
-    - _DepthColor: {r: 0.3584906, g: 0.10653258, b: 0.10653258, a: 0}
-    - _ShallowColor: {r: 0.13550194, g: 0.6404251, b: 0.8207547, a: 0}
+    - _DepthColor: {r: 0.26666668, g: 0.35686275, b: 0.5921569, a: 0}
+    - _ShallowColor: {r: 0.252759, g: 0.67524034, b: 0.754717, a: 0}
   m_BuildTextureStacks: []

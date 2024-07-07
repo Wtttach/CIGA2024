@@ -13,6 +13,7 @@ public class Finish : MonoBehaviour
     public Transform Level2Platform;
     private int _currentLevel;
     private float _timer=0;
+    public AudioSource FinishAudio = null;
     private void Start()
     {
         _currentLevel = 0;
@@ -68,7 +69,8 @@ public class Finish : MonoBehaviour
     private void ChangeToNextLevel()
     {
         //todo
-        Levels[_currentLevel].SetActive(false);
+        Levels[_currentLevel].GetComponent<Animator>().SetBool("End", true);
+        FinishAudio.Play();
         
         if (++_currentLevel >= Levels.Count)
         {
@@ -78,5 +80,8 @@ public class Finish : MonoBehaviour
         
         //todo
         Levels[_currentLevel].SetActive(true);
+        Levels[_currentLevel].GetComponent<Animator>().SetBool("Start", true);
     }
+    
 }
+

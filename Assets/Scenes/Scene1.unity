@@ -9257,6 +9257,12 @@ MonoBehaviour:
   - 0
   Level2PlatformTargetPos: {x: -0.3, y: 0.25, z: -3.24}
   Level2Platform: {fileID: 1323367795}
+  Level3key1: 187
+  Level3key2: 207
+  Level3key3: 263
+  Level3Platform: {fileID: 958355746}
+  Level3PlatformTargetPos1: {x: 1.34, y: 6.84, z: 1.72}
+  Level3PlatformTargetPos2: {x: 2.3, y: 6.83, z: 0.95}
   FinishAudio: {fileID: 1540500043}
 --- !u!114 &970170437
 MonoBehaviour:
@@ -10225,6 +10231,7 @@ GameObject:
   - component: {fileID: 1036709160}
   - component: {fileID: 1036709162}
   - component: {fileID: 1036709161}
+  - component: {fileID: 1036709163}
   m_Layer: 5
   m_Name: LOGO
   m_TagString: Untagged
@@ -10289,6 +10296,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036709159}
   m_CullTransparentMesh: 1
+--- !u!95 &1036709163
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036709159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70e91a39a3bb18b448088b59714ff326, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1044300044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5f0159894904ded499a0cffa0ef07990, type: 3}

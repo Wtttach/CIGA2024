@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MobilePlatform : MonoBehaviour
 {
@@ -15,13 +16,20 @@ public class MobilePlatform : MonoBehaviour
     public int EndOffset=1;
     [Range(0,0.1f)]
     public float MoveSpeed=0.01f;
+    [ColorUsage(true, true)]
+    public Color SelectedColor;
+    [FormerlySerializedAs("Speed")] public float TransitionSpeed=0.05f;
     
     private Vector3 _lastPosition;
     private GameObject _startObj;
     private GameObject _endObj;
+    private Material _mat;
+    private Color _normalColor;
 
     private void Start()
     {
+        _mat = GetComponent<MeshRenderer>().material;
+        _normalColor = _mat.GetColor("_EmissionColor");
         var ward=GetWard();
         var origin = transform.position;
         _startObj=new GameObject("StartPosition");
@@ -34,6 +42,23 @@ public class MobilePlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!InputManag.IsAllowRotate)
+        {
+            var originColor = _mat.GetColor("_EmissionColor");
+            var r=Mathf.Lerp(originColor.r, SelectedColor.r, TransitionSpeed);
+            var g=Mathf.Lerp(originColor.g, SelectedColor.g, TransitionSpeed);
+            var b=Mathf.Lerp(originColor.b, SelectedColor.b, TransitionSpeed);
+            _mat.SetColor("_EmissionColor", new Color(r,g,b));
+        }
+        else
+        {
+            var originColor = _mat.GetColor("_EmissionColor");
+            var r=Mathf.Lerp(originColor.r, _normalColor.r, TransitionSpeed);
+            var g=Mathf.Lerp(originColor.g, _normalColor.g, TransitionSpeed);
+            var b=Mathf.Lerp(originColor.b, _normalColor.b, TransitionSpeed);
+            _mat.SetColor("_EmissionColor", new Color(r,g,b));
+        }
+        
         if (Input.GetMouseButton(0) && !InputManag.IsAllowRotate)
         {
             var mainCam = Camera.main;
